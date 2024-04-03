@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+void alterGameScore(int a[],int n)
+{
+    int k;
+    cin>>k;
+    a[n]+=k;
+    
+}
+int totalScore(int a[],int length)
+{
+    int sum=0;
+    for(int i=0;i<length;i++)
+    sum=sum+a[i];
+    return sum;
+}
+void printScores(int a[],int length)
+{
+    for(int i=0;i<length;i++)
+    cout<<a[i]<<" ";
+}
+int main()
+{
+    const int SIZE=5;
+    int* pArr;
+    pArr=new int[SIZE];
+    int numberOfGame;
+    for(int i=0;i<SIZE;i++)
+    *(pArr+i)=((i+2)*10)+(i+1);
+    cin>>numberOfGame;
+    alterGameScore(pArr,numberOfGame-1);
+    cout<<*(pArr+numberOfGame-1)<<endl;
+    printScores(pArr,SIZE);
+    cout<<endl<<totalScore(pArr,SIZE);
+}
