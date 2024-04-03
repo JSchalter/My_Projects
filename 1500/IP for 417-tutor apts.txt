@@ -1,0 +1,27 @@
+MOORE, VICTORIA 0737114 Tonight, 5-11-23 at 7pm and Wednesday, 5-17-23 at 1pm both for CIS 1500   
+Jordan Schalter is inviting you to a scheduled Zoom meeting.
+
+Topic: Jordan Schalter's Zoom Meeting
+Time: May 11, 2023 07:00 PM Eastern Time (US and Canada)
+
+Join Zoom Meeting
+https://us05web.zoom.us/j/86874129142?pwd=SjhMUVErb3N6cTZOYmJpQ2pKUWZZdz09
+
+Meeting ID: 868 7412 9142
+Passcode: gGVUm0
+
+
+Hello, 
+
+Here is your zoom link for this afternoon. If you could please send me any type of rubric or information regarding what you are seeking help with - that would be awesome! I look forward to meeting with you. 
+
+
+
+-Jordan Schalter
+
+MY IP 10.254.2.20
+subnet 255.255.255.0
+Gateway 10.254.2.1
+Pref 8.8.8.8
+alt is DC only
+         

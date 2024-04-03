@@ -1,0 +1,59 @@
+#include<stdio.h>
+int main()
+
+{
+
+
+int number_of_shares_purchased = 1000;
+float amount_paid_per_share = 32.87;
+float amount_paid_for_the_stock = number_of_shares_purchased * amount_paid_per_share ;
+
+// Joe paid his stockbroker a commission that amounted to 2 percent of the amount he paid for the stock.
+float commission_1 = 0.02 * amount_paid_for_the_stock ;
+
+
+//**************************************************//
+//Two weeks later Joe sold the stock
+
+
+int number_of_shares_sold = 1000;
+float amount_sold_per_share = 33.92;
+
+float amount_received = number_of_shares_sold * amount_sold_per_share ;
+
+//He paid his stockbroker another commission that
+//amounted to 2 percent of the amount he received for the stock.
+float commission_2 = 0.02 * amount_received;
+
+
+// calculate profit
+
+float total_amount_paid = amount_paid_for_the_stock + commission_1;
+
+float total_amount_received = amount_received - commission_2;
+
+float profit = total_amount_received - total_amount_paid ;
+
+
+// part 1:
+printf("The amount of money Joe paid for the stock = $%.2f\n",amount_paid_for_the_stock );
+
+// Part 2:
+printf("The amount of commission Joe paid his broker when he bought the stock = $%.2f\n", commission_1);
+
+// Part 3:
+printf("The amount that Joe sold the stock = $%.2f\n",amount_received);
+
+// Part 4;
+printf("The amount of commission Joe paid his broker when he sold the stock = $%.2f\n",commission_2);
+
+// Part 5 :
+
+if( profit > 0 )
+printf("Joe made a profit = $ %.2f\n",profit);
+else
+printf("Joe lost money = $ %.2f\n",-1*profit);
+
+
+return 0;
+}

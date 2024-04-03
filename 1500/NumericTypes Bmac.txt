@@ -1,0 +1,112 @@
+// TASK #2 Add an import statement for the Scanner class
+// TASK #2(Alternate)
+// Add an import statement for the JOptionPane class
+/**
+This program demonstrates how numeric types and
+operators behave in Java.
+*/
+public class NumericTypes
+{
+public static void main (String [] args)
+{
+// TASK #2 Create a Scanner object here
+// (not used for alternate)
+// Identifier declarations
+final int NUMBER = 2 ;// Number of scores
+final int SCORE1 = 100;// First test score
+final int SCORE2 = 95;// Second test score
+final int BOILING_IN_F = 212; // Boiling temperature
+int fToC;// Temperature Celsius
+double average;// Arithmetic average
+String output;// Line of output
+// TASK #2 declare variables used here
+// TASK #3 declare variables used here
+// TASK #4 declare variables used here
+// Find an arithmetic average.
+average = SCORE1 + SCORE2 / NUMBER;
+output = SCORE1 + " and " + SCORE2 +
+" have an average of " + average;
+System.out.println(output);
+// Convert Fahrenheit temperature to Celsius.
+fToC = 5/9 * (BOILING_IN_F - 32);
+output = BOILING_IN_F + " in Fahrenheit is " +
+fToC + " in Celsius.";
+System.out.println(output);
+System.out.println();// To leave a blank line
+// ADD LINES FOR TASK #2 HERE
+// Prompt the user for first name
+// Read the user's first name
+// Prompt the user for last name
+// Read the user's last name
+// Concatenate the user's first and last names
+// Print out the user's full name
+System.out.println();// To leave a blank line
+// ADD LINES FOR TASK #3 HERE
+// Get the first character from the user's first name
+// Print out the user's first initial
+// Convert the user's full name to uppercase
+// Print out the user's full name in uppercase
+System.out.println();// To leave a blank line
+// ADD LINES FOR TASK #4 HERE
+// Prompt the user for a diameter of a sphere
+// Read the diameter
+// Calculate the radius
+// Calculate the volume
+// Print out the volume
+}
+}
+
+===========================================================================================================
+
+// "static void main" must be defined in a public class.
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        //scanner object creation
+        Scanner sc = new Scanner(System.in);
+        
+        final double NUMBER = 2.0; //change this to double to get 97.5
+        final int  SCORE1 = 100;
+        final int SCORE2 = 95;
+        final int BOILING_IN_F = 212;
+        int fToC;
+        double average;
+        String output;
+        
+        //arithemetic average
+        average = (SCORE1+SCORE2)/NUMBER;
+        output = SCORE1+" AND "+ SCORE2 +" HAVE AN AVERAGE OF "+ average;
+        System.out.println(output);
+        
+        //F to C conversion
+        fToC = (int)(5.0/9.0 * (BOILING_IN_F-32));
+        output = BOILING_IN_F + " IN FAHRENHEIT IS " + fToC +" in celsius ";
+        System.out.println(output);
+        System.out.println();
+        
+        //#task 2
+        System.out.println("Please Enter your first name");
+        String firstName = sc.nextLine();
+        System.out.println("Please enter your last name");
+        String lastName = sc.nextLine();
+        String fullName = firstName+" "+lastName;
+        System.out.println(fullName);
+        
+        //#task 3
+        char firstInitial = firstName.charAt(0);
+        System.out.println("First letter of the name is - " +firstInitial);
+        fullName = fullName.toUpperCase();
+        System.out.println(fullName+" has "+fullName.length()+" characters.");
+        System.out.println();
+        
+        //#task 4
+        System.out.println("Please enter the diameter of the sphere");
+        double diameter = sc.nextDouble();
+        double radius = diameter/2;
+        double volume = 4.0/3.0 * Math.PI * Math.pow(radius,3);
+        System.out.println("Volume of the sphere is = "+ volume);
+        System.out.println();
+    }
+}
+
+================================================================================================
