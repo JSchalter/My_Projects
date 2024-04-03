@@ -1,0 +1,47 @@
+body{
+	background-image:("images/joker-laugh.jpg");
+	background-position: 50% 50%;
+    width:100%;
+    text-align: center;
+}
+
+main{
+    background-color: rgb(62, 240, 243);
+    width:80%;
+	margin: auto;
+    text-align: center;
+	padding:10px;
+}
+
+header{
+	border:5px solid #6a00c6;
+    width:80%;
+	height:80px;
+	margin: auto;
+	padding:10px;
+    text-align: center;		
+}
+
+table{
+    border:5px solid #6a00c6;
+	border-radius: 15px;
+    border-collapse: collapse;
+	margin: auto;
+	text-align: center;
+    vertical-align: middle;
+	padding:10px;
+}
+
+th,td{
+    border:1px solid #faf3f3;
+    border-collapse: collapse;
+	margin: auto;
+	text-align: center;
+    vertical-align: middle;
+	padding:10px;
+}
+
+ button{
+	background-color:#6a00c6;
+	color: rgb(62, 240, 243);
+}

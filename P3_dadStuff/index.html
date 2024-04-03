@@ -1,0 +1,43 @@
+<!-- 
+    Jordan Schalter
+    Dr J CIS 1440 
+    11/13/2022
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Using Fetch API to get data from API</title>
+    </head>
+    <body>
+    <div id="text">Hello</div>
+
+<script type="text/javascript" src="C:\Users\Belay\Desktop\Projects For CIS Department\1440\P3_Jokes/secretkey.js"></script>
+    
+<script type="text/javascript">
+    const options = {
+    method: 'GET',
+    headers: {
+    'X-RapidAPI-Key': secretkey,
+    'X-RapidAPI-Host': 'https://dad-jokes.p.rapidapi.com/random/joke',
+    }
+};
+
+fetch('https://dad-jokes.p.rapidapi.com/random/joke', options,)
+    .then(response => response.json())
+    .then(response => {
+        console.log(response)
+        const textDiv = document.getElementById('text');
+        const p = document.createElement('P');
+        const pText = document.createTextNode('hello 2');
+        textDiv.appendChild(p);
+        p.appendChild(pText);
+})
+.catch(err => console.error(err));
+</script>
+ 
+</head>  
+</body>
+</html>
