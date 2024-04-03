@@ -1,0 +1,802 @@
+==============================================================================
+
+MainActivity.java
+
+package com.jordanschalter.dicegame
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    //textViews
+    private TextView player1TotalTextView;
+    private TextView player2TotalTextView;
+    private TextView currentPlayerTextView;
+    private ImageView dice1ImageView;
+    private ImageView dice2ImageView;
+    private TextView turnTotalTextView;
+    private int player1TotalScore = 0;
+    private int player2TotalScore = 0;
+    private int turnTotalScore = 0;
+    private int dice1Value;
+    private int dice2Value;
+
+    //store current turn for player
+    private boolean player1Turn;
+
+    //buttons
+    private Button rollButton;
+    private Button holdButton;
+    //handler and random roll event
+    private Handler eventHandler;
+    private Random randomEvent;
+
+    //array of dice image
+    private ArrayList<Integer> diceImageIds;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //set the turn, it is true if it is player1's turn false else
+        player1Turn = true;
+
+        diceImageIds  = new ArrayList<>();
+        //lists of all dice images
+        diceImageIds.add(R.mipmap.dice_face_one);
+        diceImageIds.add(R.mipmap.dice_face_two);
+        diceImageIds.add(R.mipmap.dice_face_three);
+        diceImageIds.add(R.mipmap.dice_face_four);
+        diceImageIds.add(R.mipmap.dice_face_five);
+        diceImageIds.add(R.mipmap.dice_face_six);
+
+        //event handler and random dice event
+        eventHandler = new Handler();
+        randomEvent = new Random();
+
+        //initialising
+        player1TotalTextView = findViewById(R.id.activity_main_player1_total);
+        player2TotalTextView = findViewById(R.id.activity_main_player2_total);
+        currentPlayerTextView = findViewById(R.id.activity_main_player_current);
+        dice1ImageView = findViewById(R.id.activity_main_dice_image1);
+        dice2ImageView = findViewById(R.id.activity_main_dice_image2);
+        rollButton = findViewById(R.id.activity_main_roll_button);
+        holdButton = findViewById(R.id.activity_main_hold_button);
+        turnTotalTextView = findViewById(R.id.activity_main_turn_total);
+
+        //set image views
+        dice1ImageView.setImageResource(0);
+        dice2ImageView.setImageResource(0);
+
+        //set scoreboard
+        player1TotalTextView.setText("Player 1 Total: "+ player1TotalScore);
+        player2TotalTextView.setText("Player 2 Total: "+ player2TotalScore);
+
+        //set ClickListeners
+        rollButton.setOnClickListener(this);
+        holdButton.setOnClickListener(this);
+    }
+
+    //onClick
+    @Override
+    public void onClick(view View) {
+        if(view == rollButton){
+          //call roll event
+            rollDiceEvent();
+        }else if(view == holdButton){
+            //if holdButton
+            holdEvent();
+        }
+    }
+
+    //holdEvent
+    public void holdEvent(){
+        eventHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                //if hold button is pressed the turnScore is added to the player score
+                if(player1Turn){
+                    player1TotalScore += turnTotalScore;
+                }else{
+                    player2TotalScore += turnTotalScore;
+                }
+
+                setPlayerTurnTextView();
+                //the current turn is changed
+                changeTurn();
+                //Score is turned to 0
+                turnTotalScore = 0;
+                turnTotalTextView.setText("Turn Total: "+turnTotalScore);
+                dice1ImageView.setImageResource(0);
+                dice2ImageView.setImageResource(0);
+                checkWinner();
+            }
+        });
+    }
+
+    //rollDice
+    public void rollDiceEvent(){
+        eventHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //holdButton is enabled after every roll event
+                if(!holdButton.isEnabled())
+                    holdButton.setEnabled(true);
+                //get dice values
+                int[] diceValues = rollDice();
+                //set dice images
+                setDiceImages(diceValues[0],diceValues[1]);
+                dice1Value  = diceValues[0];
+                dice2Value = diceValues[1];
+                //both faces are equal
+                if(dice1Value == dice2Value) {
+                    //both the dice are valued at 1
+                    if(dice1Value == 1){
+                        //the current player's score is made 0
+                        clearScore(player1Turn);
+                        turnTotalScore = 0;
+                        //change turn
+                        setPlayerTurnTextView();
+                        changeTurn();
+                    }else{
+                        //if any other number
+                        turnTotalScore += dice1Value + dice2Value;
+                        //disable hold button
+                        holdButton.setEnabled(false);
+                    }
+                }else if(dice1Value == 1 || dice2Value == 1){
+                    //if either dice values are 1, the turn total is 0
+                    turnTotalScore = 0;
+                    //change playerTurn
+                    if(player1Turn){
+                        Toast.makeText(getApplication(),"Player 1 loses turn!",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplication(),"Player 2 loses turn!",Toast.LENGTH_SHORT).show();
+                    }
+                    setPlayerTurnTextView();
+                    changeTurn();
+                }else{
+                    //any other case the turnTotal is added to score
+                    turnTotalScore += dice1Value + dice2Value;
+                }
+                //set textView
+                turnTotalTextView.setText("Turn Total: "+turnTotalScore);
+            }
+        },200);
+    }
+
+    //changeTurn
+    public void changeTurn(){
+        player1Turn = !player1Turn;
+    }
+
+    //clear the score
+    private void clearScore(boolean player1Turn) {
+        if(player1Turn){
+            player1TotalScore = 0;
+            Toast.makeText(this,"Player 1 loses all points and turn!",Toast.LENGTH_SHORT).show();
+        }else{
+            player2TotalScore = 0;
+            Toast.makeText(this,"Player 2 loses all points and turn!",Toast.LENGTH_SHORT).show();
+        }
+    }
+    //set dice images
+    public void setDiceImages(int dice1Value, int dice2Value) {
+        dice1ImageView.setImageResource(diceImageIds.get(dice1Value-1));
+        dice2ImageView.setImageResource(diceImageIds.get(dice2Value-1));
+    }
+    //returns two random numbers between 1 and 6
+    public int[] rollDice(){
+        return new int[]{1+randomEvent.nextInt(6),1+randomEvent.nextInt(6)};
+    }
+    //turnTextView is set according to the next player
+    private void setPlayerTurnTextView() {
+        if(player1Turn){
+            currentPlayerTextView.setText("Current Player: P2");
+            player1TotalTextView.setText("Player 1 Total: "+player1TotalScore);
+        }else{
+            currentPlayerTextView.setText("Current Player: P1");
+            player2TotalTextView.setText("Player 2 Total: "+player2TotalScore);
+        }
+    }
+
+    public void checkWinner(){
+//if any player gets at min 50 points
+        if(player2TotalScore >= 50||player1TotalScore >= 50){
+            //winner is determained
+            if(player1TotalScore>player2TotalScore){
+                turnTotalTextView.setText("Game Over! Player 1 wins!");
+            }else{
+                turnTotalTextView.setText("Game Over! Player 2 wins!");
+            }         
+ //disable buttons
+            rollButton.setEnabled(false);
+            holdButton.setEnabled(false);
+        }
+    }
+}
+
+
+===============================================================================================
+
+activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1 Total: 12"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:id="@+id/activity_main_player1_total"
+        android:textColor="#de000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 2 Total: 12"
+        android:textSize="18sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_below="@+id/activity_main_player1_total"
+        android:id="@+id/activity_main_player2_total"
+        android:textColor="#de000000"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Player: P1"
+        android:textSize="18sp"
+        android:layout_below="@id/activity_main_player2_total"
+        android:layout_marginBottom="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:id="@+id/activity_main_player_current"
+        android:textColor="#de000000"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center"
+        android:id="@+id/activity_main_linear_container"
+        android:layout_marginTop="64dp"
+        android:layout_below="@id/activity_main_player_current">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/dice_face_five"
+            android:id="@+id/activity_main_dice_image1"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/dice_face_one"
+            android:layout_marginStart="16dp"
+            android:id="@+id/activity_main_dice_image2"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:text="ROLL DICE"
+        android:id="@+id/activity_main_roll_button"
+        android:layout_below="@id/activity_main_linear_container"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="8dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:text="HOLD"
+        android:id="@+id/activity_main_hold_button"
+        android:layout_below="@id/activity_main_roll_button"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="36dp"
+        android:layout_marginBottom="8dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turn Total: 0"
+        android:textSize="24sp"
+        android:id="@+id/activity_main_turn_total"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:textColor="#de000000"/>
+</RelativeLayout>
+
+
+
+==================================================================================================
+package com.jordanschalter.projectone
+
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.TextView
+import android.os.Bundle
+import android.os.Handler
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import com.jordanschalter.projectone.R
+import android.widget.Toast
+import java.util.*
+
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    //textViews
+    private var player1TotalTextView;
+    private var player2TotalTextView;
+    private var currentPlayerTextView;
+    private var dice1ImageView;
+    private var dice2ImageView;
+    private var turnTotalTextView;
+    private var player1TotalScore = 0
+    private var player2TotalScore = 0
+    private var turnTotalScore = 0
+    private var dice1Value = 0
+    private var dice2Value = 0
+
+    //store current turn for player
+    private var player1Turn = false
+
+    //buttons
+    private var rollButton;
+    private var holdButton;
+
+    //handler and random roll event
+    private var eventHandler;
+    private var randomEvent;
+
+    //array of dice image
+    private var diceImageIds: ArrayList<Int>? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //set the turn, it is true if it is player1's turn false else
+        player1Turn = true
+        diceImageIds = ArrayList()
+        //lists of all dice images
+        diceImageIds!!.add(R.drawable.dice_face_one)
+        diceImageIds!!.add(R.drawable.dice_face_two)
+        diceImageIds!!.add(R.drawable.dice_face_three)
+        diceImageIds!!.add(R.drawable.dice_face_four)
+        diceImageIds!!.add(R.drawable.dice_face_five)
+        diceImageIds!!.add(R.drawable.dice_face_six)
+
+        randomEvent = Random()
+
+        //initialising
+        player1TotalTextView = findViewById(R.id.activity_main_player1_total)
+        player2TotalTextView = findViewById(R.id.activity_main_player2_total)
+        currentPlayerTextView = findViewById(R.id.activity_main_player_current)
+        dice1ImageView = findViewById(R.id.activity_main_dice_image1)
+        dice2ImageView = findViewById(R.id.activity_main_dice_image2)
+        rollButton = findViewById(R.id.activity_main_roll_button)
+        holdButton = findViewById(R.id.activity_main_hold_button)
+        turnTotalTextView = findViewById(R.id.activity_main_turn_total)
+
+        //set image views
+        dice1ImageView.setImageResource(0)
+        dice2ImageView.setImageResource(0)
+
+        //set scoreboard
+        player1TotalTextView.setText("Player 1 Total: $player1TotalScore")
+        player2TotalTextView.setText("Player 2 Total: $player2TotalScore")
+
+        //set ClickListeners
+        rollButton.setOnClickListener(this)
+        holdButton.setOnClickListener(this)
+    }
+
+    //onClick
+    override fun onClick(view: View) {
+        if (view === rollButton) {
+            //call roll event
+            rollDiceEvent()
+        } else if (view === holdButton) {
+            //if holdButton
+            holdEvent()
+        }
+    }
+
+    //holdEvent
+    fun holdEvent() {
+        eventHandler!!.post { //if hold button is pressed the turnScore is added to the player score
+            if (player1Turn) {
+                player1TotalScore += turnTotalScore
+            } else {
+                player2TotalScore += turnTotalScore
+            }
+            setPlayerTurnTextView()
+            //the current turn is changed
+            changeTurn()
+            //Score is turned to 0
+            turnTotalScore = 0
+            turnTotalTextView!!.text = "Turn Total: $turnTotalScore"
+            dice1ImageView!!.setImageResource(0)
+            dice2ImageView!!.setImageResource(0)
+            checkWinner()
+        }
+    }
+
+    //rollDice
+    fun rollDiceEvent() {
+        eventHandler!!.postDelayed({ //holdButton is enabled after every roll event
+            if (!holdButton!!.isEnabled) holdButton!!.isEnabled = true
+            //get dice values
+            val diceValues = rollDice()
+            //set dice images
+            setDiceImages(diceValues[0], diceValues[1])
+            dice1Value = diceValues[0]
+            dice2Value = diceValues[1]
+            //both faces are equal
+            if (dice1Value == dice2Value) {
+                //both the dice are valued at 1
+                if (dice1Value == 1) {
+                    //the current player's score is made 0
+                    clearScore(player1Turn)
+                    turnTotalScore = 0
+                    //change turn
+                    setPlayerTurnTextView()
+                    changeTurn()
+                } else {
+                    //if any other number
+                    turnTotalScore += dice1Value + dice2Value
+                    //disable hold button
+                    holdButton!!.isEnabled = false
+                }
+            } else if (dice1Value == 1 || dice2Value == 1) {
+                //if either dice values are 1, the turn total is 0
+                turnTotalScore = 0
+                //change playerTurn
+                if (player1Turn) {
+                    Toast.makeText(application, "Player 1 loses turn!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(application, "Player 2 loses turn!", Toast.LENGTH_SHORT).show()
+                }
+                setPlayerTurnTextView()
+                changeTurn()
+            } else {
+                //any other case the turnTotal is added to score
+                turnTotalScore += dice1Value + dice2Value
+            }
+            //set textView
+            turnTotalTextView!!.text = "Turn Total: $turnTotalScore"
+        }, 200)
+    }
+
+    //changeTurn
+    fun changeTurn() {
+        player1Turn = !player1Turn
+    }
+
+    //clear the score
+    private fun clearScore(player1Turn: Boolean) {
+        if (player1Turn) {
+            player1TotalScore = 0        
+        } else {
+            player2TotalScore = 0
+        }
+    }
+
+    //set dice images
+    fun setDiceImages(dice1Value: Int, dice2Value: Int) {
+        dice1ImageView!!.setImageResource(diceImageIds!![dice1Value - 1])
+        dice2ImageView!!.setImageResource(diceImageIds!![dice2Value - 1])
+    }
+
+    //returns two random numbers between 1 and 6
+    fun rollDice(): IntArray {
+        return intArrayOf(1 + randomEvent!!.nextInt(6), 1 + randomEvent!!.nextInt(6))
+    }
+
+    //turnTextView is set according to the next player
+    private fun setPlayerTurnTextView() {
+        if (player1Turn) {
+            currentPlayerTextView!!.text = "Current Player: P2"
+            player1TotalTextView!!.text = "Player 1 Total: $player1TotalScore"
+        } else {
+            currentPlayerTextView!!.text = "Current Player: P1"
+            player2TotalTextView!!.text = "Player 2 Total: $player2TotalScore"
+        }
+    }
+
+    fun checkWinner() {
+//if any player gets at min 50 points
+        if (p2tT >= 50 || player1TotalScore >= 50) {
+            //winner is determained
+            if (player1TotalScore > player2TotalScore) {
+                turnTotalTextView!!.text = "Game Over! Player 1 wins!"
+            } else {
+                turnTotalTextView!!.text = "Game Over! Player 2 wins!"
+            }
+            //disable buttons
+            rollButton!!.isEnabled = false
+            holdButton!!.isEnabled = false
+        }
+    }
+}
+
+
+============================================================
+
+package com.jordanschalter.jordanschalterproject1
+
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        // Find the Button in the layout
+        val rollButton: Button = findViewById(R.id.button)
+
+        // Set a click listener on the button to roll the dice when the user taps the button
+        rollButton.setOnClickListener { rollDice() }
+    }
+
+    private fun rollDice() {
+        // Create new Dice object with 6 sides and roll it
+        val diceOne = Dice_One(6)
+        val diceTwo = Dice_Two(6)
+        val diceRoll = dice.roll()
+
+        // Update the screen with the dice roll
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
+    }
+}
+
+class Dice(private val numSides: Int) {
+
+
+    fun roll(): Int {
+        return (1..numSides).random()
+    }
+}
+
++++++++++++++++++++++++++++++++++++++
+
+  // Find the Button in the layout
+        val rollButton: Button = findViewById(R.id.buttonRoll)
+
+        // Set a click listener on the button to roll the dice when the user taps the button
+        rollButton.setOnClickListener { rollDice() }
+    }
+
+        // Create new Dice object with 6 sides and roll it
+        val dice = Dice(6)
+
+        val diceRoll = dice.roll()
+
+        // Update the screen with the dice roll
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
+    }
+}
+
+class Dice(private val numSides: Int) {
+
+
+    fun roll(): Int {
+        return (1..numSides).random()
+    }
+}
+
+
+
+
+
+====================================================================================================
+
+My Variables - 
+
+
+
+    var p1score: String? = null
+    private var p2score: String? = null
+    private var cplayer: String? = null
+    private var dice1img: ImageView? = null
+    private var dice1img: View: ImageView? = null
+    private var tTotal: String? = null
+    private var player1_score = 0
+    private var player2_score = 0
+    private var tTotalScore = 0
+    private var d1Value = 0
+    private var d2Value = 0
+
+    //store current turn for player
+    private var player1Turn = false
+
+    //buttons
+    private var rollButton: Button? = null
+    private var holdButton: Button? = null
+
+    //handler and random roll event
+    private lateinit var eventHandler: Handler
+    private var randomEvent: Random? = null
+
+    //array of dice image
+    private var diceImageIds: ArrayList<Int>? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //set the turn, it is true if it is player1's turn false else
+        player1Turn = true
+        diceImageIds = ArrayList()
+        //lists of all dice images
+        diceImageIds!!.add(R.drawable.dice_face_one)
+        diceImageIds!!.add(R.drawable.dice_face_two)
+        diceImageIds!!.add(R.drawable.dice_face_three)
+        diceImageIds!!.add(R.drawable.dice_face_four)
+        diceImageIds!!.add(R.drawable.dice_face_five)
+        diceImageIds!!.add(R.drawable.dice_face_six)
+
+        //event handler and random dice event
+        eventHandler = Handler()
+
+        randomEvent = Random()
+
+        //initialising
+        player1TotalTextView = findViewById(R.id.activity_main_player1_total)
+        player2TotalTextView = findViewById(R.id.activity_main_player2_total)
+        currentPlayerTextView = findViewById(R.id.activity_main_player_current)
+        dice1ImageView = findViewById(activity_main_dice_image1)
+        dice2ImageView = findViewById(R.id.activity_main_dice_image2)
+        rollButton = findViewById(R.id.activity_main_roll_button)
+        holdButton = findViewById(R.id.activity_main_hold_button)
+        turnTotalTextView = findViewById(R.id.activity_main_turn_total)
+
+        //set image views
+        dice1ImageView.setImageResource(0)
+        dice2ImageView.setImageResource(0)
+
+        //set scoreboard
+        player1_score.setText("Player 1 Score: $player1_score")
+        player2TotalTextView.setText("Player 2 Total: $player2_score")
+
+        //set ClickListeners
+
+    }
+
+    //onClick
+    override fun onRoll(view: View) {
+        if (view === buttonRoll) {
+            //call roll event
+            onRollEvent()
+        } else if (view === buttonHold) {
+            //if hold
+            holdHoldEvent()
+        }
+    }
+
+    //holdEvent
+    fun holdEvent() {
+        eventHandler.post(Runnable { //if hold button is pressed the turnScore is added to the player score
+            if (player1Turn) {
+                player1TotalScore += turnTotalScore
+            } else {
+                player2TotalScore += turnTotalScore
+            }
+            setPlayerTurnTextView()
+            //the current turn is changed
+            changeTurn()
+            //Score is turned to 0
+            turnTotalScore = 0
+            turnTotalTextView.setText("Turn Total: turnTotalScore")
+            dice1ImageView.setImageResource(0)
+            dice2ImageView.setImageResource(0)
+            checkWinner()
+        })
+    }
+
+    //rollDice
+    fun rollDiceEvent() {
+        eventHandler.postDelayed(Runnable { //holdButton is enabled after every roll event
+            if (!holdButton?.isEnabled!!) holdButton?.isEnabled = true
+            //get dice values
+            val dValues = rollDice()
+            //set dice images
+            setDiceImages(dice1[0], dice2[1])
+            dice1 = d1Values[0]
+            dice2 = d2Values[1]
+            //both faces are equal
+            if (d1Value == d2Value) {
+                //both the dice are valued at 1
+                if (d1Value == 1) {
+                    //the current player's score is made 0
+                    clearScore(p1Turn)
+                    tTotal = 0
+                } else {
+                    //if any other number
+                    tTotal += d1Value + d2Value
+                    //disable hold button
+                    holdButton!!.isEnabled = false
+                }
+            } else if (d1Value == 1 || d2Value == 1) {
+                //if either dice values are 1, the turn total is 0
+                tTotal = 0
+
+            } else {
+        
+                tTotal += d1Value + d2Value
+            }
+            //set textView
+            binding.tTotal.text.toString()
+        }, 200)
+    }
+
+    //changeTurn
+    fun changeTurn() {
+        player1Turn = !player1Turn
+    }
+
+    //clear the score
+    private fun clearScore(player1Turn: Boolean) {
+        if (player1Turn) {
+            player1TotalScore = 0
+        } else {
+            player2TotalScore = 0
+        }
+    }
+    //set dice images
+    fun setDiceImages(dice1Value: Int, dice2Value: Int) {
+        dice1ImageView.setImageResource(diceImageIds!![dice1Value - 1])
+        dice2ImageView.setImageResource(diceImageIds!![dice2Value - 1])
+    }
+
+    //returns two random numbers between 1 and 6
+    private fun rollDice(): IntArray {
+        return intArrayOf(1 + randomEvent!!.nextInt(6), 1 + randomEvent!!.nextInt(6))
+    }
+
+    //turnTextView is set according to the next player
+    private fun setPlayerTurnTextView() {
+        if (p1Turn) {
+            cplayer.setText("Current Player: P2")
+            p1score.setText("Player 1 Total: $player1_Score")
+        } else {
+            cplayer.setText("Current Player: P1")
+            p2score.setText("Player 2 Total: $player2_Score")
+        }
+    }
+
+    private fun checkWinner() {
+//if any player gets at min 50 points
+        if (player2TotalScore >= 50 || player1TotalScore >= 50) {
+            //winner is decided
+            if (player1TotalScore > player2TotalScore) {
+                turnTotalTextView.setText("Game Over! Player 1 wins!")
+            } else {
+                turnTotalTextView.setText("Game Over! Player 2 wins!")
+            }
+            //disable buttons
+            rollButton?.isEnabled = false
+            holdButton?.isEnabled = false
+        }
+    }
+}

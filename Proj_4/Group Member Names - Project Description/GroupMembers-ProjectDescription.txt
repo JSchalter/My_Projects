@@ -1,0 +1,11 @@
+Group Members: 
+
+Kevin McLaughlin
+Jordan Schalter
+Graham Pocock
+
+
+Our project was an expansion idea/based off of a project that Jordan made/showed us for an HTML course that he is in. This project is a joke application which uses the dadjokes api on rapidapi to produce jokes for the amusement 
+of others. There is a dropdown menu which allows users to pick from categories which consist of: General, Music, Knock-Knock, Dad, and Donkey joke categories. Our project has two buttons on the 1st Frag which allow users 
+of our application to get jokes by the dropdown type selected or a random joke from the api. The second page of our application shows the joke setup and punchline - and also has  an img button to take users back to the first fragment 
+and either select another joke, or get another random joke. Overal we had a lot of fun putting this together as a team and the work flow did not feel like we were tasked, yet more like we were all just having fun doing the project.  
