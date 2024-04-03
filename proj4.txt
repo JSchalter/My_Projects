@@ -1,0 +1,397 @@
+package characterScreen;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class CharacterScreenMain extends Application {
+
+@Override
+
+public void start(Stage primaryStage) {
+
+try {
+//Loading the fxml file
+
+Parent root = FXMLLoader.load(getClass().getResource("characterScreenFXML.fxml"));
+
+Scene scene = new Scene(root);//creating a scene
+
+primaryStage.setScene(scene);//setting the scene
+
+primaryStage.setTitle("Character Screen");//setting the title
+
+primaryStage.setResizable(false);//cannot be resized as GUI is not dynamic
+
+primaryStage.show();
+
+} catch(IOException e) {
+}
+
+}
+
+public static void main(String[] args) {
+
+launch(args);//launching the application
+
+}
+
+}
+
+--------------------------------
+
+package characterScreen;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+
+public class CharacterScreenController implements Initializable {
+
+@FXML
+private ComboBox<String> characterClass;
+@FXML
+private RadioButton male;
+@FXML
+private RadioButton female;
+@FXML
+private RadioButton other;
+@FXML
+private TextField name;
+
+//for adding items to the combo box
+
+ObservableList<String> cClass = FXCollections.observableArrayList("Warrior", "Beastmaster", "Monk", "Wizard", "Demon Hunter");
+//for storing radiobutton selection
+
+String str;
+	@FXML
+	private ToggleGroup Gender;
+	@FXML
+	private MenuItem readFile;
+	@FXML
+	private Slider justCompSlide;
+	@FXML
+	private Slider strengthWisdomSlide;
+	@FXML
+	private Slider humilHonorSlide;
+
+@Override//initializing the elements when app starts
+
+public void initialize(URL location, ResourceBundle resources) {
+
+characterClass.setItems(cClass);
+
+}
+
+void justCompSlide(ActionEvent event){
+	str += justCompSlide.getValue()+ "\n";
+}
+
+void strengthWisdomSlide(ActionEvent event){
+	str += strengthWisdomSlide.getValue()+ "\n";
+}
+
+void humilHonorSlide(ActionEvent event){
+	str += humilHonorSlide.getValue()+ "\n";
+}
+
+
+@FXML//for radio button selection
+void selectGender(ActionEvent event) {
+
+str = "";
+
+if(male.isSelected()) {//selecting male
+
+str += male.getText()+"\n";
+
+}
+
+if(female.isSelected()) {//selecting female
+
+str += female.getText()+"\n";
+
+}
+
+if(other.isSelected()) {//selecting other
+
+str += other.getText()+"\n";
+
+}
+}
+
+@FXML//performing exit operation
+void exitOperation(ActionEvent event) {
+
+System.exit(1);
+
+}
+
+@FXML//reseting the value
+void resetOperation(ActionEvent event) {
+
+List<String> list = new ArrayList<>(characterClass.getItems());
+
+characterClass.getItems().removeAll(list);
+
+characterClass.getItems().addAll(list);
+
+male.setSelected(false);
+
+female.setSelected(false);
+
+other.setSelected(false);
+
+str="";
+
+//reseting textfield
+
+name.clear();
+
+}
+
+//Perform save operation
+@FXML
+void saveOperation(ActionEvent event) throws IOException {
+//get the user desktop path
+
+Path p1 = Paths.get(System.getProperty("user.home"), "Desktop", "profile.txt");
+
+	String path = p1.toString();
+
+File file = new File("character_" + name.getText() + ".player");//creating file
+
+//Checking if the file exists
+if (!file.exists()) {
+
+file.createNewFile();
+
+System.out.println("File created Successfully");
+
+}
+
+else {
+
+System.out.println("File already exists");
+
+}
+
+//using fileoutputStream and bufferedwriter to write the text file
+FileOutputStream fos = new FileOutputStream(file);
+
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+
+bw.write("--------Player Profile-------- \n"); bw.newLine();
+
+bw.write("Player Name: " + name.getText()); bw.newLine();
+
+bw.write("Gender: " + str);
+
+bw.write("Class: " + characterClass.getValue()); bw.newLine();
+
+bw.write("Justice vs Compassion: " + justCompSlide.getValue()); bw.newLine();
+
+bw.write("Strength vs Wisdom: " + strengthWisdomSlide.getValue()); bw.newLine();
+
+bw.write("Humility vs Honor: " + humilHonorSlide.getValue()); bw.newLine();
+
+bw.close();
+
+}
+    private List<String> readFile(String filename) throws FileNotFoundException {
+        List<String> records = new ArrayList<>();
+        
+        try {
+            try (BufferedReader reader = new BufferedReader (new FileReader(filename))) {
+                String line;
+                
+                while ((line = reader.readLine()) != null) {
+                    records.add(line);
+                }
+            }
+            return records;
+        }
+        catch (IOException e) {
+                System.err.format("Exception occurred trying to read '%s'.", filename);
+                return null;
+            }
+        }
+    
+
+
+	@FXML
+	private void saveOperation(Event event) {
+	}
+
+	@FXML
+	private void resetOperation(Event event) {
+	}
+
+	@FXML
+	private void exitOperation(Event event) {
+	}
+
+	@FXML
+	private void openOperation(ActionEvent event) {
+	}
+
+
+
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="503.0" prefWidth="759.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="characterScreen.CharacterScreenController">
+
+<children>
+
+<ComboBox fx:id="characterClass" layoutX="277.0" layoutY="193.0" prefHeight="35.0" prefWidth="150.0" promptText="Warrior" />
+
+<RadioButton fx:id="male" layoutX="32.0" layoutY="97.0" mnemonicParsing="false" onAction="#selectGender" prefHeight="35.0" prefWidth="99.0" text="Male">
+
+<font>
+
+<Font size="14.0" />
+
+</font>
+
+<toggleGroup>
+
+<ToggleGroup fx:id="Gender" />
+
+</toggleGroup>
+
+</RadioButton>
+
+<RadioButton fx:id="female" layoutX="169.0" layoutY="97.0" mnemonicParsing="false" onAction="#selectGender" prefHeight="35.0" prefWidth="117.0" text="Female" toggleGroup="$Gender">
+
+<font>
+
+<Font size="14.0" />
+
+</font>
+
+</RadioButton>
+
+<RadioButton fx:id="other" layoutX="293.0" layoutY="97.0" mnemonicParsing="false" onAction="#selectGender" prefHeight="35.0" prefWidth="117.0" text="Other" toggleGroup="$Gender">
+
+<font>
+
+<Font size="14.0" />
+
+</font>
+
+</RadioButton>
+
+<Text layoutX="34.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Gender">
+
+<font>
+
+<Font name="System Bold" size="18.0" />
+
+</font>
+
+</Text>
+
+<Text layoutX="34.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Class">
+
+<font>
+
+<Font name="System Bold" size="18.0" />
+
+</font>
+
+</Text>
+
+<Text layoutX="35.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Name">
+
+<font>
+
+<Font name="System Bold" size="18.0" />
+
+</font>
+
+</Text>
+
+<TextField fx:id="name" layoutX="211.0" layoutY="303.0" prefHeight="35.0" prefWidth="216.0" />
+
+<MenuBar layoutY="3.0" prefHeight="35.0" prefWidth="759.0" AnchorPane.bottomAnchor="468.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+<menus>
+
+<Menu mnemonicParsing="false" text="File">
+
+<items>
+
+<MenuItem mnemonicParsing="false" onAction="#saveOperation" onMenuValidation="#saveOperation" text="Save Profile" />
+
+<MenuItem mnemonicParsing="false" onAction="#resetOperation" onMenuValidation="#resetOperation" text="Reset Profile" />
+
+<MenuItem mnemonicParsing="false" onAction="#exitOperation" onMenuValidation="#exitOperation" text="Exit" />
+                  <MenuItem fx:id="OpenFile" mnemonicParsing="false" onAction="#openOperation" text="Open" />
+
+</items></Menu>
+
+</menus>
+
+</MenuBar>
+      <Slider fx:id="justCompSlide" layoutX="527.0" layoutY="169.0" />
+      <Slider fx:id="strengthWisdomSlide" layoutX="527.0" layoutY="240.0" />
+      <Slider fx:id="humilHonorSlide" layoutX="527.0" layoutY="309.0" />
+      <Label layoutX="519.0" layoutY="172.0" text="0" />
+      <Label layoutX="661.0" layoutY="172.0" text="100" />
+      <Label layoutX="519.0" layoutY="243.0" text="0" />
+      <Label layoutX="660.0" layoutY="243.0" text="100" />
+      <Label layoutX="660.0" layoutY="312.0" text="100" />
+      <Label layoutX="519.0" layoutY="312.0" text="0" />
+      <Label layoutX="544.0" layoutY="151.0" prefHeight="18.0" prefWidth="140.0" text="Justice vs Compassion" />
+      <Label layoutX="489.0" layoutY="189.0" prefHeight="18.0" prefWidth="264.0" text="(Fully Just = 0, Fully Compassionate = 100)" />
+      <Label layoutX="544.0" layoutY="219.0" prefHeight="18.0" prefWidth="140.0" text="Strength vs Wisdom" />
+      <Label layoutX="489.0" layoutY="261.0" prefHeight="18.0" prefWidth="216.0" text="(Fully Strong = 0, Fully Wise = 100)" />
+      <Label layoutX="544.0" layoutY="294.0" prefHeight="18.0" prefWidth="140.0" text="Humility vs Honor" />
+      <Label layoutX="489.0" layoutY="329.0" prefHeight="18.0" prefWidth="249.0" text="(Fully Humble = 0, Fully Honorable = 100)" />
+
+</children>
+
+</AnchorPane>
+

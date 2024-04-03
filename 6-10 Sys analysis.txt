@@ -1,0 +1,40 @@
+1. Pretend that your mother is a real estate agent and that she has decided to automate her daily 
+tasks by using a laptop computer. Consider her potential hardware and software needs and create a hardware
+and software specification that describes them. The specification should be developed to help your 
+mother buy her hardware and software on her own.
+
+I actually just went through this the other day as I just built and setup a home computer for my grandmother who needed a computer for excel, photoediting, and quicken loans.
+
+Software: Windows 10, quicken loans, excel (all outlook apps) Mcafee security suit. 
+
+Hardware: Asus z940 mobo, 8 gb ram, Intel 10th gen i3, touchscreen monitor, 5GB memory, 1 tb nvme, mouse/keyaboard.
+
+2. 2. Pretend that the admissions office in your university has a Web‐based application so that students 
+can apply for admission online. Recently, there has been a push to admit more international students into 
+the university. What do you recommend that the application include to ensure that it supports this global 
+requirement?
+
+I think that the university could benifit from adding a translator app and/or also have someone in a help chat in the bottom of the screen where someone bilingual can assist them. 
+Another cool way that the university could help would be by including hyperlinks to automatically turn the page into whichever language the user desires.   
+
+3. Assume that you are developing a new system for a local real estate agency. The agency wants to keep a 
+database of its own property listings and also wants to have access to the citywide multiple listings service
+ used by all real estate agents. Which design strategy would you recommend for the construction of this 
+system? Why? 
+
+The system should outsourced. They should hire a professional to create the system and show them how to opperate it with the basics needed. 
+at that point the users would only have to have the professionals come in to maintenance the system / for regular updates and what not. 
+
+4. Develop two personas and two use scenarios for a website that sells some retail products (e.g., books, music, clothes).
+Person 1: Dj looking for new music 
+1) Dj looks for new music they might like but have never actually listened to
+2)Dj checks out online music catalogs to see if the music they want is in stock.
+3)Dj adds the music that they want to their cart and checks for any promotions
+4)Dj pays with PayPal
+
+Persona 2: Dad looks for new fishing equiptment on the Bass Pro website
+1) Dad Finds deals on the site for buy two rods get one free
+2) Dad also finds a deal on fake bait with the purchase of 100 hooks
+3) Dad adds the two rods and 100 hooks to the shopping cart and then gets the promotional rod and fake bait for free
+4) Dad pays half in Paypal and then puts rest on his fathers day Bass Pro gift card. 
+
