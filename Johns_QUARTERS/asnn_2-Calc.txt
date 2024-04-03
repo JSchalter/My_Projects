@@ -1,0 +1,54 @@
+// Task#2
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to read user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Take two integer inputs from the user
+        System.out.print("Enter the first number: ");
+        double num1 = scanner.nextDouble();
+        
+        System.out.print("Enter the second number: ");
+        double num2 = scanner.nextDouble();
+        
+        // Calculate the sum, difference, product, and quotient
+        double sum = num1 + num2;
+        double difference = num1 - num2;
+        double product = num1 * num2;
+        double quotient = num1 / num2;
+        
+        // Print the results
+        System.out.println("Sum: " + sum);
+        System.out.println("Difference: " + difference);
+        System.out.println("Product: " + product);
+        System.out.println("Quotient: " + quotient);
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
+
+import javax.swing.JOptionPane;
+
+public class UserInfoDialog {
+    public static void main(String[] args) {
+        // Ask for user's first name
+        String firstName = JOptionPane.showInputDialog(null, "Enter your first name:");
+
+        // Ask for user's last name
+        String lastName = JOptionPane.showInputDialog(null, "Enter your last name:");
+
+        // Ask for user's age
+        String ageString = JOptionPane.showInputDialog(null, "Enter your age:");
+        int age = Integer.parseInt(ageString);
+
+        // Concatenate the first name and last name
+        String fullName = firstName + " " + lastName;
+
+        // Show the full name and age in a dialog box
+        JOptionPane.showMessageDialog(null, "Full Name: " + fullName + "\nAge: " + age);
+    }
+}

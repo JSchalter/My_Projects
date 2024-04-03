@@ -1,0 +1,183 @@
+import java.util.Scanner;
+
+public class ShoppingCartApp {
+
+    public static void main(String[] args) {
+        BagInterface<Item> cart = new BagArray<>(); // You can use BagLinkedObjects as well
+        ShoppingCart shoppingCart = new ShoppingCart(cart);
+        shoppingCart.run();
+    }
+}
+
+class ShoppingCart {
+    private BagInterface<Item> cart;
+
+    public ShoppingCart(BagInterface<Item> cart) {
+        this.cart = cart;
+    }
+
+    public void run() {
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            displayMenu();
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addItemToCart();
+                    break;
+                case 2:
+                    removeItemFromCart();
+                    break;
+                case 3:
+                    removeSpecificItem();
+                    break;
+                case 4:
+                    getCountOfItems();
+                    break;
+                case 5:
+                    viewCart();
+                    break;
+                case 6:
+                    abandonCart();
+                    break;
+                case 7:
+                    System.out.println("Exiting the program.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 7);
+
+        scanner.close();
+    }
+
+    private void displayMenu() {
+        System.out.println("1. Add Item to Cart");
+        System.out.println("2. Remove Item from Cart");
+        System.out.println("3. Remove Specific Item from Cart");
+        System.out.println("4. Get Count of Items in Cart");
+        System.out.println("5. View Cart and Print Receipt");
+        System.out.println("6. Abandon Cart");
+        System.out.println("7. Exit");
+    }
+
+    private void addItemToCart() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter item name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter item price: ");
+        double price = scanner.nextDouble();
+
+        Item newItem = new Item(name, price);
+        if (cart.add(newItem)) {
+            System.out.println("Item added to cart successfully.");
+        } else {
+            System.out.println("Failed to add item to cart.");
+        }
+    }
+
+    private void removeItemFromCart() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter item name to remove: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter item price to remove: ");
+        double price = scanner.nextDouble();
+
+        Item itemToRemove = new Item(name, price);
+        if (cart.remove(itemToRemove)) {
+            System.out.println("Item removed from cart successfully.");
+        } else {
+            System.out.println("Item not found in cart.");
+        }
+    }
+
+    private void removeSpecificItem() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter item name to remove: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter item price to remove: ");
+        double price = scanner.nextDouble();
+
+        Item itemToRemove = new Item(name, price);
+        int countRemoved = cart.removeEvery(itemToRemove);
+        if (countRemoved > 0) {
+            System.out.println(countRemoved + " items removed from cart.");
+        } else {
+            System.out.println("Item not found in cart.");
+        }
+    }
+
+    private void getCountOfItems() {
+        System.out.println("Number of items in cart: " + cart.getCurrentSize());
+    }
+
+    private void viewCart() {
+        CartView cartView = new CartView(cart);
+        cartView.printReceipt();
+    }
+
+    private void abandonCart() {
+        cart.clear();
+        System.out.println("Cart abandoned. All items removed.");
+    }
+}
+
+class CartView {
+    private BagInterface<Item> cart;
+
+    public CartView(BagInterface<Item> cart) {
+        this.cart = cart;
+    }
+
+    public void printReceipt() {
+        System.out.println("\nItemized Receipt:");
+        for (Item item : cart) {
+            System.out.println(item.getName() + " - $" + item.getPrice());
+        }
+        System.out.println("------------------------");
+        System.out.println("Total Cost: $" + getTotalCost());
+        System.out.println();
+    }
+
+    private double getTotalCost() {
+        double totalCost = 0.0;
+        for (Item item : cart) {
+            totalCost += item.getPrice();
+        }
+        return totalCost;
+    }
+}
+
+class Item {
+    private String name;
+    private double price;
+
+    public Item(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Item item = (Item) obj;
+        return Double.compare(item.price, price) == 0 && name.equals(item.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }

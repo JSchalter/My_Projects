@@ -1,0 +1,99 @@
+import java.util.Scanner;
+
+public class ShoppingCartApp {
+
+    public static void main(String[] args) {
+        // Create a shopping cart with BagInterface
+        BagInterface<Item> shoppingCart = new BagArray<>();
+
+        // Create a scanner for user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Main menu
+        while (true) {
+            System.out.println("\nShopping Cart Menu:");
+            System.out.println("1. Add item to cart");
+            System.out.println("2. Remove item from cart");
+            System.out.println("3. Get number of items in cart");
+            System.out.println("4. Get total cost of the cart");
+            System.out.println("5. View receipt");
+            System.out.println("6. Abandon the cart");
+            System.out.println("7. Exit");
+
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addItemToCart(shoppingCart, scanner);
+                    break;
+                case 2:
+                    removeItemFromCart(shoppingCart, scanner);
+                    break;
+                case 3:
+                    System.out.println("Number of items in the cart: " + shoppingCart.getCurrentSize());
+                    break;
+                case 4:
+                    System.out.println("Total cost of the cart: $" + getTotalCost(shoppingCart));
+                    break;
+                case 5:
+                    printReceipt(shoppingCart);
+                    break;
+                case 6:
+                    abandonCart(shoppingCart);
+                    break;
+                case 7:
+                    System.out.println("Exiting the shopping cart application. Goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+            }
+        }
+    }
+
+    private static void addItemToCart(BagInterface<Item> shoppingCart, Scanner scanner) {
+        System.out.print("Enter item name: ");
+        String itemName = scanner.next();
+
+        System.out.print("Enter item price: ");
+        double itemPrice = scanner.nextDouble();
+
+        Item newItem = new Item(itemName, itemPrice);
+
+        if (shoppingCart.add(newItem)) {
+            System.out.println("Item added to the cart successfully.");
+        } else {
+            System.out.println("Failed to add item to the cart.");
+        }
+    }
+
+    private static void removeItemFromCart(BagInterface<Item> shoppingCart, Scanner scanner) {
+        System.out.print("Enter item name: ");
+        String itemName = scanner.next();
+
+        System.out.print("Enter item price: ");
+        double itemPrice = scanner.nextDouble();
+
+        Item itemToRemove = new Item(itemName, itemPrice);
+
+        if (shoppingCart.remove(itemToRemove)) {
+            System.out.println("Item removed from the cart successfully.");
+        } else {
+            System.out.println("Failed to remove item from the cart. Item not found.");
+        }
+    }
+
+    private static double getTotalCost(BagInterface<Item> shoppingCart) {
+        double totalCost = 0.0;
+        for (Item item : shoppingCart.toArray()) {
+            totalCost += item.getPrice();
+        }
+        return totalCost;
+    }
+
+    private static void printReceipt(BagInterface<Item> shoppingCart) {
+        System.out.println("\nReceipt:");
+
+        for (Item item : shoppingCart.toArray()) {
+   

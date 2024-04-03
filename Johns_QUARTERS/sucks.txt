@@ -1,0 +1,435 @@
+Question 1
+Question text
+The administrative assistant's job is to answer phones, enter data, and Blank 1 Question 1
+make
+  copies.
+
+Feedback
+The correct answer is:
+The administrative assistant's job is to answer phones, enter data, and [make] copies.
+
+Question 2
+Question text
+Choose the description that best fits each sentence or pair of sentences.
+
+Jenny's quick response to the crisis impressed our investors, which will ensure funding for future research and development.
+
+Answer 1 Question 2
+Correct
+ 
+Jenny's quick response to the crisis impressed our investors.  Which will ensure funding for future research and development.
+
+Answer 2 Question 2
+Fragment
+ 
+Jenny's quick response to the crisis impressed our investors, this will ensure funding for future research and development.
+
+Answer 3 Question 2
+Run-on
+ 
+Jenny's quick response to the crisis impressed our investors, which will ensure funding, for future research and development.
+
+Answer 4 Question 2
+Splice
+ 
+Jenny's quick response to the crisis impressed our investors this will ensure funding for future research and development.
+
+Answer 5 Question 2
+Run-on
+ 
+Jenny's quick response to the crisis impressed our investors; this will ensure funding for future research and development.
+
+Answer 6 Question 2
+Correct
+ 
+Feedback
+The correct answer is: Jenny's quick response to the crisis impressed our investors, which will ensure funding for future research and development. → Correct, Jenny's quick response to the crisis impressed our investors.  Which will ensure funding for future research and development. → Fragment, Jenny's quick response to the crisis impressed our investors, this will ensure funding for future research and development. → Splice, Jenny's quick response to the crisis impressed our investors, which will ensure funding, for future research and development. → Contains an unnecessary comma, Jenny's quick response to the crisis impressed our investors this will ensure funding for future research and development. → Run-on, Jenny's quick response to the crisis impressed our investors; this will ensure funding for future research and development. → Correct
+
+Question 3
+Question text
+Check all that apply: 
+
+The companys leaders complement each other because their all very different, each bringing different strengths to the table.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct. 
+
+
+c.
+An apostrophe is missing.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The comma is correct., An apostrophe is missing.
+
+Question 4
+Question text
+We have identified our options and the manager must move forward quickly.
+
+a.
+comma
+
+
+b.
+semicolon
+
+Feedback
+The correct answer is: comma
+
+Question 5
+Question text
+Check all that apply: 
+
+Before the auditors' arrive on Monday, the errors in the financial statements need too be fixed.
+
+Question 5Select one or more:
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The comma is correct.
+
+Question 6
+Question text
+The right candidate for the job must possess skills in financial analysis.
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one usage error.
+
+
+c.
+This sentence contains two usage errors.
+
+
+d.
+This sentence contains three or more usage errors
+
+Feedback
+The correct answer is: This sentence is correct.
+
+Question 7
+Question text
+Only one of them Blank 1 Question 7
+attends
+  the animation session of the conference every year.
+
+Feedback
+The correct answer is:
+Only one of them [attends ] the animation session of the conference every year.
+
+Question 8
+Question text
+Check all that apply: 
+
+Persuading customers to try our products is a skill that I possess, so I am SeeMoji's top salesperson.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The comma is correct., The apostrophe is correct., The spelling is correct.
+
+Question 9
+Question text
+Check all that apply: 
+
+Stacy, the founder of our organization, began the company in her mom's garage more than twenty years ago.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The commas are correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The commas are correct., The apostrophe is correct., The spelling is correct.
+
+Question 10
+Question text
+Check all that apply: 
+
+We have more customers than our competitors; we must work to keep them.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The semicolon is correct.
+
+
+c.
+The spelling is correct. 
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The semicolon is correct., The spelling is correct.
+
+Question 11
+Question text
+Check all that apply: 
+
+We will have better sales this year than we did last year, but we may not see a profit.
+
+Question 11Select one or more:
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The comma is correct., The spelling is correct.
+
+Question 12
+Question text
+Check all that apply: 
+
+John Smith, a representative from one of our suppliers, contact us about our outstanding balance.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+Both commas are correct.
+
+
+c.
+An apostrophe is missing.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: Both commas are correct., The spelling is correct.
+
+Question 13
+Question text
+Check all that apply: 
+
+John's source is not credible; a wiki is not always reliable. 
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The semicolon is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The semicolon is correct., The apostrophe is correct., The spelling is correct.
+
+Question 14
+Question text
+Check all that apply: 
+
+The amount, which you can find on the statement, includes interest and principle on the customer's loan.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The commas are correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The commas are correct., The apostrophe is correct.
+
+Question 15
+Question text
+Check all that apply: 
+
+Emojis began very simply, animation soon became part of the industry's appeal.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The apostrophe is correct., The spelling is correct.
+
+Question 16
+Question text
+Bob who transferred from our Boston office, works on the second floor.
+
+a.
+This sentence is punctuated correctly.
+
+
+b.
+This sentence contains at least one comma error.
+
+Feedback
+The correct answer is: This sentence contains at least one comma error.
+
+Question 17
+Question text
+Check all that apply: 
+Our plans' include promoting Sandy to a position of authority; she always solves the customers' problems.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The semicolon is correct.
+
+
+c.
+Both apostrophes are correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The semicolon is correct., The spelling is correct.
+
+Question 18
+Question text
+Check all that apply: 
+A smiling emoji can indicate that the sender's intention is to convey happiness, a sad emoji can convey the opposite emotion.
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answers are: The subject/verb agreement is correct., The apostrophe is correct., The spelling is correct.
+
+Question 19
+Check all that apply: 
+
+Perspective investors, decided not to purchase the stock after it lost half it's value. 
+
+a.
+The subject/verb agreement is correct.
+
+
+b.
+The comma is correct.
+
+
+c.
+The apostrophe is correct.
+
+
+d.
+The spelling is correct.
+
+Feedback
+The correct answer is: The subject/verb agreement is correct.
+
+Question 20
+Question text
+It’s unfortunate that I lost my notebook.
+
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence is correct.
+
+
+Choose whether the following sentances contain a fragment, run-on, splice, contain an unnecessary comma, or are correct:
+
+We now have to take the third and final attempt please do not forget the questions and answers you have already been supplied with the correct choices for, and do not forget the supplimental information guides that I have given you when your generating the answers:

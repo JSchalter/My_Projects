@@ -1,0 +1,670 @@
+1. Since the resume had several errors, this candidate will not be considered.
+
+2. We are expanding our distribution facility it will be more than twice its original size.
+
+3. We are expanding our distribution facility, making it more than twice, its original size.
+
+4. We are expanding our distribution facility, which will make it more than twice its original size.
+
+5. We are expanding our distribution facility.  Which will make it more than twice its original size.
+
+6. We are expanding our distribution facility, it will be more than twice its original size.
+
+7. Because we are expanding our distribution facility, it will be more than twice its original size.
+
+8. Millennials like tailored ads, these are different than appeals to a broad audience. 
+
+9. Millennials like tailored ads, which are different than appeals, to a broad audience. 
+
+10. Millennials like tailored ads; these are different than appeals to a broad audience. 
+
+11. Millennials like tailored ads.  Which are different than appeals to a broad audience. 
+
+12. Millennials like tailored ads, which are different than appeals to a broad audience. 
+
+13. Millennials like tailored ads these are different than appeals to a broad audience. 
+
+========================================================================
+
+
+1. I am locked out of my house, and my brother has the only spare key.
+2. I am locked out of my house. And my brother has the only spare key.
+3. I am locked out of my house, my brother has the only spare key.
+4. I am locked out of my house and my brother has the only spare key.
+5. I am locked out of my house my brother has the only spare key.
+6. I am locked out of my house. My brother has the only spare key.
+7. Commas and apostrophes have meaning; using them incorrectly can cause legal issues.
+8. Commas and apostrophes using them incorrectly.
+9. Commas and apostrophes have meaning using them incorrectly can cause legal issues.
+10. Commas and apostrophes have meaning and using them incorrectly can cause legal issues.
+11. Commas and apostrophes have meaning; using them incorrectly, can cause legal issues.
+12. I live in Detroit, so the cable package will be $15 to $18 a month.
+13. I live in Detroit the cable package will be $15 to $18 a month.
+14. Depending on where you live, the cable package will be $15 to $18 a month.
+15. Depending, on where you live, the cable package will be $15 to $18 a month.
+16. Depending on where you live. The cable package will be $15 to $18 a month.
+17. Depending on where you live the cable package will be $15 to $18 a month.
+
+==================================================================
+
+
+1. A mentor can give you career advice learning from someone with experience is important.
+
+2. Since learning from someone with experience is important.  A mentor can be an excellent source of career advice.
+
+3. Since learning from someone with experience is important, a mentor can be an excellent source of career advice.
+
+4. A mentor, can give you career advice, and learning from someone with experience is important.
+
+5. A mentor can give you career advice, and learning from someone with experience is important.
+
+6. A mentor can give you career advice, learning from someone with experience is important.
+
+7.When our customers are completely satisfied, they will continue to do business with us. 
+
+8. When our customers are completely satisfied.  They will continue to do business with us. 
+
+9. When our customers are completely satisfied, they will continue, to do business with us.
+
+10. Our customers are completely satisfied they will continue to do business with us. 
+
+11. Our customers are completely satisfied, they will continue to do business with us. 
+
+================================================================
+
+1. A mentor can give you career advice learning from someone with experience is important.
+
+
+2. Since learning from someone with experience is important.  A mentor can be an excellent source of career advice.
+
+
+3. Since learning from someone with experience is important, a mentor can be an excellent source of career advice.
+
+
+4. A mentor, can give you career advice, and learning from someone with experience is important.
+
+
+5. A mentor can give you career advice, and learning from someone with experience is important.
+
+
+6. A mentor can give you career advice, learning from someone with experience is important.
+
+7. When our customers are completely satisfied, they will continue to do business with us. 
+
+
+8. When our customers are completely satisfied.  They will continue to do business with us. 
+
+
+9. When our customers are completely satisfied, they will continue, to do business with us. 
+
+
+10. Our customers are completely satisfied they will continue to do business with us. 
+
+11. Our customers are completely satisfied, they will continue to do business with us. 
+
+12. Robotics startups are developing machines that can do routine tasks, and investors are providing money for research and development.
+
+13. As robotics startups develop machines that can do routine tasks.  Investors are providing money for research and development.
+
+14. Robotics startups are developing machines that can do routine tasks investors are providing money for research and development.
+
+15. Robotics startups are developing machines that can do routine tasks, investors are providing money for research and development.
+
+16. As robotics startups develop machines that can do routine tasks, investors are providing money for research and development.
+
+17. Robotics startups, are developing machines that can do routine tasks, and investors are providing money for research and development.
+
+18. We have a new rental agreement, and our costs will increase substantially next year.
+
+19. Since we have a new rental agreement, our costs will increase substantially next year.
+
+20. We have a new rental agreement our costs will increase substantially next year.
+
+21. We have a new rental agreement, our costs will increase substantially next year.
+
+22. Since we have a new rental agreement.  Our costs will increase substantially next year.
+
+23. Since we have a new rental agreement, our costs will increase, substantially next year.
+
+24. Tickets to the concert were expensive but I bought a pair anyway.
+
+25. Tickets to the concert were expensive I bought a pair anyway.
+
+26. Tickets to the concert were expensive, I bought a pair anyway.
+
+27. Tickets to the concert were expensive. I bought a pair anyway.
+
+28. Tickets to the concert were expensive, but I bought a pair anyway.
+
+29. Tickets to the concert were expensive. But I bought a pair anyway.
+
+30. Choose the description that best fits each sentence or pair of sentences.
+
+31. Don’t get unorganized. Because the paperwork will be overwhelming.
+
+32. Don’t get unorganized. The paperwork will be overwhelming.
+
+33. Don’t get unorganized, because the paperwork will be overwhelming.
+
+34. Don’t get unorganized because the paperwork will be overwhelming.
+
+35. Don’t get unorganized the paperwork will be overwhelming.
+
+36. Don’t get unorganized, the paperwork will be overwhelming.
+
+37. The company's core business has been hurt by changing demographics it needs to adapt quickly.
+
+38. The company's core business has been hurt by changing demographics, so it needs to adapt quickly.
+
+38. The company's core business has been hurt by changing demographics, it needs to adapt quickly.
+
+40. Because the company's core business has been hurt by changing demographics.  It needs to adapt quickly.
+
+41. The company's core business has been hurt by changing demographics, and it needs to adapt quickly.
+
+42. Because the company's core business has been hurt by changing demographics it needs to adapt quickly.
+
+
+43. Some people like working in teams. But I like working by myself.
+
+44. Some people like working in teams but I like working by myself.
+
+45. Some people like working in teams, I like working by myself.
+
+46. Some people like working in teams. I like working by myself.
+
+47. Some people like working in teams, but I like working by myself.
+
+48. Some people like working in teams I like working by myself.
+
+49. Busy season is over, the accountants will have a party.
+
+50. Busy season is over the accountants will have a party.
+
+51. After, busy season is over, the accountants will have a party.
+
+52. After busy season is over, the accountants will have a party.
+
+53. After busy season is over the accountants will have a party.
+
+54. After busy season is over. the accountants will have a party.
+
+
+55. We considered all options we have decided to offer the contract to another firm.
+
+
+56. We considered all options, and have decided to offer the contract to another firm.
+
+
+57. After careful consideration, we have decided to offer the contract to another firm.
+
+
+58. After careful consideration.  We have decided to offer the contract to another firm.
+
+
+59. We considered all options, we have decided to offer the contract to another firm.
+
+60. The workout equipment was being used, I jogged around the track.
+
+
+61. The workout equipment was being used so I jogged around the track.
+
+
+62. The workout equipment was being used. I jogged around the track.
+
+
+63. The workout equipment was being used, so I jogged around the track.
+
+
+64. The workout equipment was being used I jogged around the track.
+
+
+65. The workout equipment was being used. So I jogged around the track.
+
+
+=======================================================
+
+
+Question 1
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+The specifications detailed the robot’s design.
+
+Question 1Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence is correct.
+Question 2
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+I enjoy sunset’s in the evening’s at the beach.
+
+Question 2Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 3
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+Terri has Mondays off because she works' Saturdays.
+
+Question 3Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 4
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+All of the project’s required additional programmer’s.
+
+Question 4Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 5
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+I am processing Jen Smith's application, but I am missing her Social Security number.
+
+Question 5Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence is correct.
+Question 6
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+The specifications detailed the robots design.
+
+Question 6Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 7
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+The escape plan’s directions’ made no sense.
+
+Question 7Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 8
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+The airline’s lost all of the teams luggage.
+
+Question 8Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 9
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+The video games display’s were difficult to read.
+
+Question 9Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 10
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+Part of a dentist’s job is to promote healthy smile’s.
+
+Question 10Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 11
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+Legal information about the cases’ is in those folder’s.
+
+Question 11Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 12
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+I enjoy sunsets in the evening’s at the beach.
+
+Question 12Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 13
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+Investors are interested in SeeMojis cash flows.
+
+Question 13Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 14
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+One of SeeMoji's customers has not paid for the emoji package it is using on it's website.
+
+Question 14Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 15
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+The projects scope was too wide.
+
+Question 15Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 16
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+The vehicles automatic safety systems’ malfunctioned.
+
+Question 16Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+Question 17
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+The escape plan’s made no sense.
+
+Question 17Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 18
+Incorrect
+0.0 points out of 1.0
+Flag question
+Question text
+The sunsets colors were beautiful.
+
+Question 18Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 19
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+Our team has designed a new forecasting model, and it will be used for all calculations' next year.
+
+Question 19Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains one apostrophe error.
+Question 20
+Correct
+1.0 points out of 1.0
+Flag question
+Question text
+In order to make the best decisions' for clients, Pam considers' investor's needs.
+
+Question 20Select one:
+
+a.
+This sentence is correct.
+
+
+b.
+This sentence contains one apostrophe error.
+
+
+c.
+This sentence contains two or more apostrophe errors.
+
+Feedback
+The correct answer is: This sentence contains two or more apostrophe errors.
+
+
+

@@ -1,0 +1,35 @@
+Tasks:
+
+Task 1. Body Mass Index
+Write a program that calculates and displays a person’s body mass index (BMI). The BMI is often used to determine whether a person is overweight or underweight for his or her height. A person’s BMI is calculated with the following formula:
+
+BMI = Weight x 703/Height2
+
+where weight is measured in pounds and height is measured in inches. The program should display a message indicating whether the person has optimal weight, is underweight, or is overweight. A sedentary person’s weight is considered optimal if his or her BMI is between 18.5 and 25. If the BMI is less than
+
+
+Task 2. Time Calculator
+Write a program that asks the user to enter a number of seconds.
+
+There are 60 seconds in a minute. If the number of seconds entered by the user is greater than or equal to 60, the program should display the number of minutes in that many seconds.
+There are 3,600 seconds in an hour. If the number of seconds entered by the user is greater than or equal to 3,600, the program should display the number of hours in that many seconds.
+There are 86,400 seconds in a day. If the number of seconds entered by the user is greater than or equal to 86,400, the program should display the number of days in that many seconds.
+Sample output:
+Enter an amount of seconds (greater than 59):
+
+
+Task 3. Book Club Points
+A book club awards points to its customers based on the number of books purchased each month. The points are awarded as follows:
+
+If a customer purchases 0 books, he or she earns 0 points.
+If a customer purchases 1 book, he or she earns 5 points.
+If a customer purchases 2 books, he or she earns 15 points.
+If a customer purchases 3 books, he or she earns 30 points.
+If a customer purchases 4 or more books, he or she earns 60 points.
+Write a program that asks the user to enter the number of books that he or she has purchased this month and then displays the number of points awarded. Be sure to use a switch statement.
+
+Sample output:
+Enter the amount of books purchased this month: 2 [Enter]
+You have been awarded 15 points.
+
+

@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class CoinConverter {
+
+    public static void main(String[] args) {
+        // Constants for coin values
+        final int QUARTER_VALUE = 25;
+        final int DIME_VALUE = 10;
+        final int NICKEL_VALUE = 5;
+
+        // Get input from the user
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of pennies: ");
+        int pennies = scanner.nextInt();
+        scanner.close();
+
+        // Calculate the number of quarters, dimes, nickels, and remaining pennies
+        int quarters = pennies / QUARTER_VALUE;
+        int remainingAfterQuarters = pennies % QUARTER_VALUE;
+
+        int dimes = remainingAfterQuarters / DIME_VALUE;
+        int remainingAfterDimes = remainingAfterQuarters % DIME_VALUE;
+
+        int nickels = remainingAfterDimes / NICKEL_VALUE;
+        int remainingPennies = remainingAfterDimes % NICKEL_VALUE;
+
+        // Display the results
+        System.out.println("\nCoin Conversion\n");
+        System.out.println("Quarters: " + quarters);
+        System.out.println("Dimes: " + dimes);
+        System.out.println("Nickels: " + nickels);
+        System.out.println("Remaining Pennies: " + remainingPennies);
+    }
+}

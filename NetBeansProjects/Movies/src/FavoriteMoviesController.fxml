@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10">
+            <ListView fx:id="movieList" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="textField" promptText="Enter movie name" />
+            <HBox spacing="10">
+                <Button fx:id="addButton" text="Add" />
+                <Button fx:id="removeButton" text="Remove" />
+                <Button fx:id="loadButton" text="Load" />
+                <Button fx:id="saveButton" text="Save" />
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
