@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&display=swap');
+            header {
+          font-family: 'BhuTuka Expanded One', cursive;
+        }
+             h3 {
+        font-family: 'Brush Script MT', cursive;
+        }
+            table {
+        font-family: 'Brush Script MT', cursive;
+        }
+            img {
+            width: 300px;
+        }
+        
+            img:hover {
+   animation: shakeImg 0.15s;
+   animation-iteration-count: infinite;
+   
+        }
+
+@keyframes shakeImg {
+   0% { transform: translate(1px, 1px) rotate(5deg); }
+   20% { transform: translate(-3px, 0px) rotate(10deg); }
+   30% { transform: translate(3px, 2px) rotate(-10deg); }
+   50% { transform: translate(-1px, 2px) rotate(-20deg); }
+   70% { transform: translate(3px, 1px) rotate(-25deg); }
+   90% { transform: translate(1px, 2px) rotate(10deg); }
+   
+   100% { transform: translate(1px, -2px) rotate(-10deg); }
+}
+        </style>
+
+        <meta charset="UTF-8">
+        <title>Jokes Your Dad Would Tell </title>
+        <link rel="stylesheet" href="proj3.css">
+        <link rel="sounds.html" href="proj3.html">
+        <script type="text/javascript" src="script.js">
+function play(){
+       var myAudio = document.getElementById("Laughter.mp3");
+       audio.play();
+                 }
+        </script>
+    </head>
+    <br>
+    <br>
+    <body onload="getList()">	
+     
+        
+        <header>			
+            <h1> Jokes Your Dad Would Tell</h1>
+		</header>
+ 
+        <br>
+        <br>
+        <main>  
+            <div id="myTable" class = "clcenter"></div> 
+        </main>
+        
+            <br>
+            <br>
+                <span class="Home"> <!-- Inline parent element -->
+                    <img src="images/img2.jpg" width="400" height="400"
+                    autoplay loop onMouseOver="document.getElementById('myAudio').play()" 
+                    onMouseOut="document.getElementById('myAudio').pause()">
+                    <audio id="myAudio" src="Laughter.mp3"></audio>
+                </span>
+                <h3> Click The 'New Joke' Button For More Dad Jokes</h3>    
+                <button onClick="getList()">New Joke</button> 
+            </div> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <footer>
+		<p>Copyright Jordan Schalter &copy; 2022</p>
+		</footer>
+    </body>
+</html>

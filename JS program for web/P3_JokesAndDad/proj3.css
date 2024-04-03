@@ -1,0 +1,82 @@
+body {
+	text-align:center;
+    background-image:url('https://media.allure.com/photos/628cfc9399091c4ff577b84e/16:9/w_2560%2Cc_limit/perm%2520retainers.png');
+    background-repeat:repeat;
+    background-size:cover;
+  	max-width:850px;
+  	width:100%;
+  	margin:0 auto;
+	color: #a207fc;
+	background-color: rgb(236, 149, 190);
+	width:100%;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+
+}
+
+main{
+	background-image:url('https://media.allure.com/photos/628cfc9399091c4ff577b84e/16:9/w_2560%2Cc_limit/perm%2520retainers.png');
+    width: 100%;
+	height: 100%;
+	margin: auto;
+    text-align: center;
+	padding:15px;
+}
+
+header{
+	background-image:url('https://miro.medium.com/max/1400/0*7uJGeZ0hnUbK8dgh');
+	border:5px solid #6a00c6;
+	background-color: rgb(62, 240, 243);
+    width:100%;
+	height:100%;
+	margin: auto;
+	padding:10px;
+    text-align: center;		
+}
+
+table{
+    border:5px solid #6a00c6;
+	width:100%;
+	border-radius: 5px;
+    border-collapse: collapse;
+	margin: auto;
+	text-align: center;
+    vertical-align: middle;
+	padding:10px;
+}
+
+th,td{
+	font-size: 18px;
+    border:1px solid #6a00c6;
+    border-collapse: collapse;
+	margin: auto;
+	text-align: center;
+    vertical-align: bottom;
+	padding:5px;
+}
+
+ button{
+	background-color:#6a00c6;
+	color: rgb(62, 240, 243);
+}
+
+footer{
+	background-image: url('https://i0.wp.com/www.allhallowsgeek.com/wp-content/uploads/2019/05/batman-animated-series-joker-laughing.gif?resize=100%2C338&is-pending-load=1#038;ssl=1');
+	height:100%;
+	color: #07dffc;
+	border:5px solid #6a00c6;
+	background-color: rgb(62, 240, 243);
+    width:100%;
+	height:200px;
+	margin: auto;
+	padding:10px;
+    text-align: center;	
+}
+
+  .Home :hover {
+	-webkit-filter: invert(1);
+	filter: invert(1);
+
+	}
+ 
