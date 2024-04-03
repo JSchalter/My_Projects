@@ -1,0 +1,178 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+public class MusicDB {
+private Connection connection;
+private String dbUrl;
+
+public MusicDB() {
+dbUrl = "/Users/swapnil/IdeaProjects/MusicDB/src/music_artists.sqlite";
+
+try {
+connection = DriverManager.getConnection(dbUrl);
+} catch (SQLException e) {
+System.err.println(e);
+}
+}
+
+public void closeConnection() {
+try {
+if (connection != null) {
+connection.close();
+}
+} catch (SQLException e) {
+System.err.println(e);
+}
+}
+
+public Artist[] populateArtists() {
+ArrayList<Artist> artists = new ArrayList<>();
+Artist[] artistArray;
+String sql = "SELECT * FROM Artists ORDER BY Name";
+try (PreparedStatement ps = connection.prepareStatement(sql)) {
+ResultSet rs = ps.executeQuery();
+
+while (rs.next()) {
+String name = rs.getString("Name");
+int artistID = rs.getInt("ArtistID");
+Artist art = new Artist(artistID, name);
+artists.add(art);
+}
+rs.close();
+ps.close();
+} catch (SQLException ex) {
+System.err.println(ex);
+}
+
+artistArray = new Artist[artists.size()];
+return artists.toArray(artistArray);
+}
+
+public Album[] populateAlbums(Artist[] artists) {
+ArrayList<Album> albums = new ArrayList<>();
+Album[] albumArray;
+String sql = "SELECT * FROM Albums ORDER BY Name";
+try (PreparedStatement ps = connection.prepareStatement(sql)) {
+ResultSet rs = ps.executeQuery();
+while (rs.next()) {
+String name = rs.getString("Name");
+int artistID = rs.getInt("ArtistID");
+int albumID = rs.getInt("AlbumID");
+Album album = new Album(albumID, artistID, name);
+albums.add(album);
+}
+rs.close();
+ps.close();
+} catch (SQLException ex) {
+System.err.println(ex);
+}
+albumArray = new Album[albums.size()];
+return (Album[]) albums.toArray(albumArray);
+}
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class Album {
+private int artistID,
+albumID;
+private String name;
+
+Album(int a, int b, String c) {
+albumID = a;
+artistID = b;
+name = c;
+}
+
+public int getArtistID() {
+return artistID;
+}
+
+public int getAlbumID() {
+return albumID;
+}
+
+@Override
+public String toString() {
+return name;
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+public class Artist {
+private int artistID;
+private String name;
+private ArrayList<Album> albums;
+public Artist(int a, String b) {
+artistID = a;
+name = b;
+albums = new ArrayList<>();
+}
+
+public int getArtistID() {
+return artistID;
+}
+
+public String getName() {
+return name;
+}
+
+@Override
+public String toString() {
+String output = "";
+output+= name + "\n";
+for(int x = 0; x < albums.size(); x++) {
+output+= "\t" + albums.get(x) + "\n";
+}
+
+return output;
+}
+
+public void addAlbum(Album album) {
+albums.add(album);
+}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class ArtistsAndAlbums {
+
+public static void main(String[] args) {
+MusicDB db = new MusicDB();
+Artist[] artists = db.populateArtists();
+Album[] albums = db.populateAlbums(artists);
+addAlbumsToArtists(artists, albums);
+
+System.out.println("Artists and Album Listings\n");
+
+System.out.println("Artists\n-------");
+for(int x = 0; x < artists.length; x++) {
+System.out.println(artists[x].getName());
+}
+
+System.out.println("\nAlbums\n------");
+for(int x = 0; x < albums.length; x++) {
+System.out.println(albums[x].toString());
+}
+
+System.out.println("\nAlbums By Artist\n----------------");
+for(int x = 0; x < artists.length; x++) {
+System.out.print(artists[x].toString());
+}
+
+System.out.print("\n");
+}
+
+public static void addAlbumsToArtists(Artist[] artists, Album[] albums) {
+for (int x = 0; x < artists.length; x++) {
+for (int y = 0; y < albums.length; y++) {
+if (artists[x].getArtistID() == albums[y].getArtistID()) {
+artists[x].addAlbum(albums[y]);
+}
+}
+}
+}
+}
